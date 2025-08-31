@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Barışaqmı?</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #fff8e1;
+      padding-top: 40px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #5d4037;
+    }
+    #buttons {
+      margin-top: 25px;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 10px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffcc80;
+      color: #4e342e;
+      cursor: pointer;
+    }
+    #confetti {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif') center center no-repeat;
+      background-size: cover;
+      z-index: 999;
+    }
+    .images-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .image-block {
+      text-align: center;
+      width: 300px;
+    }
+    .image-block img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .image-block p {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #6d4c41;
+    }
+  </style>
+</head>
+<body>
+  <h1>Barışaqmı?</h1>
+  <div id="buttons">
+    <button onclick="accept()">Hə</button>
+    <button onclick="decline()">Yox</button>
+  </div>
+  <div class="images-container">
+    <div class="image-block">
+      <img src="sad.jpg" alt="Barışmasan">
+      <p>Sən mənimlə barışmasan</p>
+    </div>
+    <div class="image-block">
+      <img src="Untitled.jpg" alt="Barışsan">
+      <p>Sən mənimlə barışsan</p>
+    </div>
+  </div>
+  <div id="confetti"></div>
+  <script>
+    function accept() {
+      document.getElementById("confetti").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("confetti").style.display = "none";
+        alert("🎉 Barışdıq!");
+      }, 3000);
+    }
+    function decline() {
+      document.getElementById("buttons").innerHTML = `
+        <button onclick="accept()">Hə</button>
+        <button onclick="accept()">Hə</button>
+      `;
+    }
+  </script>
+</body>
+</html>
